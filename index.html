@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+   <link rel="stylesheet" href="news.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📰Dhakad news</h1>
+            
+            <button id="theme-toggle">🌙</button>
+        </header>
+
+        <div class="category-container">
+            <button onclick="fetchNews('business')">Business</button>
+            <button onclick="fetchNews('technology')">Technology</button>
+            <button onclick="fetchNews('entertainment')">Entertainment</button>
+            <button onclick="fetchNews('health')">Health</button>
+            <button onclick="fetchNews('sports')">Sports</button>
+            <button onclick="fetchNews('science')">Science</button>
+        </div>
+
+        <div id="news-container"></div>
+    </div>
+<script src="news.js"></script>
+    
+</body>
+</html>
