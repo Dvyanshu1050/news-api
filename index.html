@@ -7,25 +7,99 @@
    <link rel="stylesheet" href="news.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>📰Dhakad news</h1>
-            
-            <button id="theme-toggle">🌙</button>
-        </header>
+   <div class="wrap">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo">SN</div>
+        <div>
+          <h1>Simple News</h1>
+          <div class="sub">Clean • Fast • Responsive</div>
+        </div>
+      </div>
 
-        <div class="category-container">
-            <button onclick="fetchNews('business')">Business</button>
-            <button onclick="fetchNews('technology')">Technology</button>
-            <button onclick="fetchNews('entertainment')">Entertainment</button>
-            <button onclick="fetchNews('health')">Health</button>
-            <button onclick="fetchNews('sports')">Sports</button>
-            <button onclick="fetchNews('science')">Science</button>
+      <div class="tabs" role="tablist" aria-label="Main tabs">
+        <button class="tab active" data-tab="current">Current</button>
+        <button class="tab" data-tab="india">India</button>
+        <button class="tab" data-tab="hindi">हिन्दी</button>
+        <button class="tab" data-tab="weather">Weather</button>
+      </div>
+    </header>
+
+    <!-- Search -->
+    <div class="searchRow">
+      <div class="search" role="search">
+        <input id="q" placeholder="Search news (press Enter)"/>
+      </div>
+      <button id="searchBtn" class="btn">Search</button>
+    </div>
+
+    <!-- Main content: left = feed, right = sidebar -->
+    <main>
+      <!-- left column -->
+      <div class="leftCol">
+
+        <!-- HERO -->
+        <div class="hero" id="heroSection">
+          <div class="cover" id="heroCover" style="background-image:linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=80')"></div>
+          <div class="info">
+            <h2 id="heroTitle">Top headline will appear here</h2>
+            <p id="heroSummary" class="small">Short summary of the top story.</p>
+            <div style="height:12px"></div>
+            <div id="offersMini" class="small"></div>
+          </div>
         </div>
 
-        <div id="news-container"></div>
-    </div>
+        <!-- Top stories -->
+        <section class="section" id="feedSection">
+          <div class="sectionHeader">
+            <h3>Top Stories</h3>
+            <div id="count" class="small">—</div>
+          </div>
+          <div class="grid" id="feed"></div>
+        </section>
+
+        <!-- Trending -->
+        <section class="section" style="margin-top:12px">
+          <div class="sectionHeader">
+            <h3>Trending</h3>
+            <div class="small">Updated</div>
+          </div>
+          <div class="grid" id="trending"></div>
+        </section>
+      </div>
+
+      <!-- right column (sidebar) -->
+      <aside class="rightCol" style="display:none">
+        <div class="section">
+          <div class="sectionHeader"><h3>Weather</h3><div class="small" id="weatherMini">—</div></div>
+          <div id="weatherMore" class="small"> </div>
+        </div>
+
+        <div class="section" style="margin-top:12px">
+          <div class="sectionHeader"><h3>Offers</h3><div class="small" id="offerCount">—</div></div>
+          <div id="offerList" class="small"></div>
+        </div>
+
+        <div class="section" style="margin-top:12px">
+          <div class="sectionHeader"><h3>Categories</h3><div class="small">Tap to filter</div></div>
+          <div id="cats" class="small" style="display:flex; flex-wrap:wrap; gap:8px"></div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- bottom nav for mobile -->
+    <nav class="bottomNav" aria-hidden="false">
+      <div class="navItem active" data-tab="current">Home</div>
+      <div class="navItem" data-tab="india">India</div>
+      <div class="navItem" data-tab="hindi">हिन्दी</div>
+      <div class="navItem" data-tab="weather">Weather</div>
+    </nav>
+
+    <footer style="margin-top:18px; color:var(--muted); font-size:13px">Simple News • Demo · Click a card to open the full article in a new tab</footer>
+  </div>
 <script src="news.js"></script>
     
 </body>
 </html>
+
