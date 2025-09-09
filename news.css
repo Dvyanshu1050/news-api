@@ -1,127 +1,74 @@
- /* Global Styles */
- body {
-    font-family: "Arial", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
-}
+ :root{
+      --bg: #071029;
+      --card: #0f1724;
+      --muted: #9fb0c8;
+      --accent: #6d28d9;
+      --glass: rgba(255,255,255,0.03);
+      color-scheme: dark;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; background:linear-gradient(180deg,#041026 0%, #071426 100%); color:#eaf2ff}
+    .wrap{max-width:1100px; margin:0 auto; padding:16px;}
+    header{display:flex; gap:12px; align-items:center}
+    .brand{display:flex; gap:10px; align-items:center}
+    .logo{width:46px; height:46px; border-radius:10px; background:linear-gradient(135deg,var(--accent), #0ea5a3); display:grid; place-items:center; font-weight:700}
+    h1{font-size:18px; margin:0}
+    .sub{color:var(--muted); font-size:13px}
 
-/* Dark Mode */
-.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-}
+    /* Tabs */
+    .tabs{display:flex; gap:8px; margin-left:auto}
+    .tab{background:transparent; border:1px solid transparent; color:var(--muted); padding:8px 10px; border-radius:10px; cursor:pointer; font-size:14px}
+    .tab.active{background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); color:#fff; border-color:rgba(255,255,255,0.04)}
 
+    /* Search */
+    .searchRow{display:flex; gap:8px; margin-top:12px}
+    .search{flex:1; display:flex; align-items:center; gap:8px; padding:10px; border-radius:12px; background:var(--card); border:1px solid rgba(255,255,255,0.02)}
+    .search input{flex:1; border:0; outline:none; background:transparent; color:inherit; font-size:15px}
+    .btn{background:var(--accent); color:white; border:0; padding:8px 12px; border-radius:10px; cursor:pointer}
 
+    /* Main area */
+    main{margin-top:14px; display:grid; gap:14px}
+    .hero{display:flex; gap:12px; align-items:end; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01)); padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03)}
+    .hero .cover{flex:1; min-height:160px; border-radius:10px; background-size:cover; background-position:center}
+    .hero .info{width:240px}
+    .hero h2{margin:0 0 6px 0; font-size:16px}
+    .hero p{margin:0; color:var(--muted); font-size:13px}
 
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
+    .section{background:var(--card); padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.02)}
+    .sectionHeader{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px}
+    .grid{display:grid; grid-template-columns:1fr; gap:10px}
 
-/* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: #007BFF;
-    color: white;
-    border-radius: 10px;
-}
+    .card{display:flex; gap:10px; align-items:center; padding:8px; border-radius:10px; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); transition:transform .18s ease, box-shadow .18s ease; cursor:pointer}
+    .card:hover{transform:translateY(-6px); box-shadow:0 10px 30px rgba(0,0,0,0.45)}
+    .thumb{width:110px; height:70px; border-radius:8px; background-size:cover; background-position:center; flex-shrink:0}
+    .meta h3{margin:0; font-size:15px}
+    .meta p{margin:6px 0 0 0; color:var(--muted); font-size:13px}
 
-#theme-toggle {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-}
+    .small{font-size:12px; color:var(--muted)}
 
-/* Category Buttons */
-.category-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 15px 0;
-}
+    /* footer bottom nav for mobile */
+    .bottomNav{position:fixed; left:50%; transform:translateX(-50%); bottom:12px; width:92%; max-width:980px; display:flex; justify-content:space-between; gap:8px; padding:8px; border-radius:12px; background:rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.03)}
+    .navItem{flex:1; text-align:center; color:var(--muted); font-size:13px; cursor:pointer}
+    .navItem.active{color:#fff; font-weight:600}
 
-.category-container button {
-    padding: 12px 15px;
-    margin: 8px;
-    background: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.category-container button:hover {
-    background: #0056b3;
-}
-
-/* News Cards */
-#news-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.news-item {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    transition: transform 0.3s;
-}
-
-.news-item:hover {
-    transform: translateY(-5px);
-}
-
-.news-item img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.news-item h3 {
-    margin: 10px 0;
-    font-size: 18px;
-}
-
-.news-item p {
-    font-size: 14px;
-    color: #666;
-}
-
-.news-item a {
-    display: block;
-    margin-top: 10px;
-    text-decoration: none;
-    color: #007BFF;
-    font-weight: bold;
-}
-
-.news-item a:hover {
-    text-decoration: underline;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .category-container {
-        flex-direction: column;
-        align-items: center;
+    /* responsive */
+    @media(min-width:780px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero .cover{min-height:220px}
+    }
+    @media(min-width:1100px){
+      main{grid-template-columns:1fr 360px; gap:18px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .rightCol{display:block}
+      .bottomNav{display:none}
+    }
+    @media(max-width:420px){
+      .hero{flex-direction:column; align-items:flex-start}
+      .hero .info{width:100%}
+      .thumb{width:90px; height:60px}
+      h1{font-size:16px}
     }
 
-    .category-container button {
-        width: 80%;
-        margin-bottom: 10px;
-    }
-}
+    /* tiny loader */
+    .loader{height:6px; width:100%; background:linear-gradient(90deg,var(--accent), #0ea5a3); border-radius:6px}
